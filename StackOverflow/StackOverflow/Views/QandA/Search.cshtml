@@ -1,0 +1,32 @@
+﻿@model List<Question>
+@{
+    ViewData["Title"] = "Search";
+}
+
+<h1>Questions</h1>
+
+<table class="table">
+<thead>
+    <tr>
+        <th>Title</th>
+        <th>Detail</th>
+        <th>Tags</th>
+        <th>Status</th>
+        <th>Posted</th>
+        <th>Edit Question</th>
+    </tr>
+</thead>
+@foreach (var item in Model)
+{
+    <tbody>
+        <tr>
+            <td>@item.Title</td>
+            <td><a asp-controller="QandA" asp-action="QuestionAnswers" asp-route-id="@item.Id">@item.Detail</a></td>
+            <td>@item.Tags</td>
+            <td>@item.Status</td>
+            <td>@item.Posted</td>
+            <td><a asp-controller="QandA" asp-action="EditQuestionForm" asp-route-id="@item.Id">Edit</a></td>
+        </tr>
+    </tbody>
+}
+</table>

@@ -1,0 +1,16 @@
+﻿@model Answer
+@{
+    ViewData["Title"] = "AddAnswerForm";
+}
+
+<h1>Add Answer Form</h1>
+<form method="post" action="/QandA/SaveAnswer?id=@Model.Id">
+    <input  type="hidden" name="Id" value="@Model.Id"/>
+    Username: <input type="text" class="form-control" name="Username" /><br />
+    Detail: <input type="text" class="form-control" name="Detail" /><br />
+    <input type="hidden" name="QuestionId" value="@Model.QuestionId" />
+    Posted: <input type="datetime" class="form-control" name="Posted" /><br />
+    Upvotes: <input type="number" class="form-control" name="Upvotes"/><br />
+    <input type="submit" value="Save" class="btn btn-primary"/>
+
+</form>

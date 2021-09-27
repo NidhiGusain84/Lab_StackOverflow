@@ -1,0 +1,42 @@
+﻿@model QuestionWithAnswers
+@{
+    ViewData["Title"] = "QuestionDetail";
+}
+
+
+<div class="card">
+    <div class="card-body">
+        <div class="card-header">@Model.Question.Detail </div>
+
+       
+        <div class="card-text">
+            <table class="table">
+                <thead>
+                    <tr>
+                        
+                        <th>All Answers</th>
+                        <th>Posted</th>
+                        <th>Upvotes</th>
+                        <th>Edit Answer</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var answer in Model.Answers)
+                    {
+                        <tr>
+                            
+                            <td>@answer.Detail</td>
+                            <td>@answer.Posted</td>
+                            <td>@answer.Upvotes</td>
+                            <td><a href="/QandA/EditAnswerForm?id=@answer.Id">Edit</a></td>
+                        </tr>
+                    }
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+</div>
+
+<a href="/QandA/AddAnswerForm?QuestionId=@Model.Question.Id" class="btn btn-primary">Add Answer</a>
